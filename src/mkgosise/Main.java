@@ -72,9 +72,9 @@ public class Main {
 
                 for (int i = 1; i <= simulations; i++)
                 {
-                    MyFileWriter.write("simulation: " + i);
+                    //MyFileWriter.write("simulation: " + i);
                     weatherTower.changeWeather();
-                    MyFileWriter.write(" ");
+                    //MyFileWriter.write(" ");
                 }
             }
         }catch (FileNotFoundException e){
