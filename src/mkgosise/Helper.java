@@ -49,7 +49,7 @@ public class Helper {
         }
         catch (Exception exc)
         {
-            exitProgram("Error converting number: " + exc.getMessage() + "\nAt: line \"" + lineIndex + "\" element \"" + elementIndex + "\".");
+            exitProgram("Exception Error converting number: " + exc.getMessage() + "\nAt: line \"" + lineIndex + "\" element \"" + elementIndex + "\".");
         }
         return (ret);
     }

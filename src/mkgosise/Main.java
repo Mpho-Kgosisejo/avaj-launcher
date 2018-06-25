@@ -5,6 +5,7 @@ import mkgosise.simulator.vehicles.AircraftFactory;
 import mkgosise.simulator.vehicles.Flyable;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,11 +72,19 @@ public class Main {
 
                 for (int i = 1; i <= simulations; i++)
                 {
+                    MyFileWriter.write("simulation: " + i);
                     weatherTower.changeWeather();
+                    MyFileWriter.write(" ");
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        }catch (FileNotFoundException e){
+            System.out.println("Exception Error: " + e.getMessage());
+        }
+        catch (Exception e) {
+            System.out.println("Exception Error: " + e.getMessage());
+        }
+        finally {
+            MyFileWriter.close();
         }
     }
 }

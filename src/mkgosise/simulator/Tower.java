@@ -8,20 +8,23 @@ import java.util.List;
 public class Tower
 {
     private List<Flyable> observers = new ArrayList<>();
+    private List<Flyable> toRemove = new ArrayList<>();
 
     public void register(Flyable flyable)
     {
         this.observers.add(flyable);
-        System.out.println("Here...");
     }
 
     public void unregister(Flyable flyable)
     {
-        //remove passed fly_obj...
+        this.toRemove.add(flyable);
     }
 
     protected void conditionsChange()
     {
-
+        for (Flyable flyable: this.observers) {
+            flyable.updateConditions();
+        }
+        observers.removeAll(toRemove);
     }
 }
